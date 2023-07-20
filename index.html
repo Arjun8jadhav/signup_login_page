@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup_login</title>
+    <link rel="stylesheet" href="signup.css"/>
+    <script src="https://kit.fontawesome.com/eb229ba72b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <section id="background" class="sec1">
+       <!-- <div class="popups">
+            <img src="tick.png" alt="done">
+            <h2>your data is submitted</h2>
+            <button type="button" name="Done">Done</button>
+             // optional for popup message incomplete work
+        </div>-->
+        <div class="form-box">
+            <h1 id="title">Sign-up</h1>
+            <form id="a-form" action="" method="post" class="form1">
+                <div class="input-group">
+                    <div class="input-field" id="nameField">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="namef" required autocomplete="off"  placeholder="name">
+
+
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" required autocomplete="off" placeholder="Email">
+                        
+
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" required autocomplete="off" placeholder="password">
+                        
+
+                    </div>
+                    <p>forget password <a href="#">Click here</a></p>
+
+                </div>
+            </form>
+                <div class="btn-field">
+                    <button type="submit "  id="signUpbtn">Sign-Up</button>
+                    <button type="submit"   id="signinbtn" class="disable">Sign-in</button>
+
+                </div>
+                
+
+        </div>
+        
+        <script>
+            let signinbtn=document.getElementById("signinbtn");
+            let signupbtn=document.getElementById("signUpbtn");
+            let title=document.getElementById("title");
+            let nameField=document.getElementById("nameField");
+            let num=1;
+            let formid=document.getElementById("a-form");
+            signinbtn.onclick=function(){
+                
+                nameField.style.maxHeight="0";
+                title.innerHTML="Sign-In";
+                signupbtn.classList.add("disable");
+                signinbtn.classList.remove("disable");
+                if(num==0){
+                     
+                     formid.setAttribute("action","/shopping")
+                     signinbtn.setAttribute("form","a-form");
+                     signupbtn.removeAttribute("form");
+
+                }
+                else{
+                    num--;
+                    document.getElementById("namef").required=false;
+
+                }
+
+              
+        
+            }
+            signupbtn.onclick=()=>{
+                
+                nameField.style.maxHeight="60px";
+                title.innerHTML="Sign-Up";
+                signupbtn.classList.remove("disable");
+                signinbtn.classList.add("disable");
+                if(num==1){
+                    formid.removeAttribute("action");
+                    signupbtn.setAttribute("form","a-form");
+                    signinbtn.removeAttribute("form");
+
+                }
+                else{
+                    num++;
+                    document.getElementById("namef").required=true;
+                }
+                
+
+                
+
+        
+            }
+            
+        
+        
+        
+        </script>
+        
+    </section>
+
+    
+</body>
+</html>
